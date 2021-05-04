@@ -12,4 +12,14 @@ public abstract class Developer
     {
         Console.WriteLine(string.Format("I'm developing with {0}", this._mainDevLanguage));
     }
+
+    public virtual void Code(string extraDevLanguage)
+    {
+        Console.WriteLine(string.Format("I'm developing with {0} and additionally with {1}", this._mainDevLanguage, extraDevLanguage));
+    }
+
+    public virtual void Code(string firstExtraDevLanguage, string secondExtraDevLanguage)
+    {
+        Console.WriteLine(string.Format("I'm developing with {0} and additionally with {1} and {2}", this._mainDevLanguage, firstExtraDevLanguage, secondExtraDevLanguage));
+    }
 }

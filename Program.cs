@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OOP
 {
@@ -6,21 +7,41 @@ namespace OOP
     {
         static void Main(string[] args)
         {
-            // CarSalesman steveTheSalesman = new CarSalesman("Steve", "Rogers");
-            // Console.WriteLine(steveTheSalesman.FullName);
-            // steveTheSalesman.Sell();
+            List<Salesman> salesmen = new List<Salesman>()
+            {
+                new CarSalesman("Steve", "Rogers"),
+                new CarSalesman("bob", "boss"),
+                new RetailSalesPerson("Erik", "Erikson"),
+                new InsuranceBroker("me", "ooo"),
+                new OnlineMarketer("Mark", "Onl")
+            };
 
-            // RetailSalesPerson erikTheCarSalesDude = new RetailSalesPerson("Erik", "Erikson");
-            // Console.WriteLine(erikTheCarSalesDude.FullName);
-            // erikTheCarSalesDude.Sell();
-            // erikTheCarSalesDude.Develop();
+            foreach (var item in salesmen)
+            {
+                ShowMeHowToSell(item);
+            }
 
-            WebDeveloper mike = new WebDeveloper("JS");
-            mike.Code();
-            mike.Develop();
+            List<SelfDeveloping> selfDeveloping = new List<SelfDeveloping>()
+            {
+                new RetailSalesPerson("Erik", "Erikson"),
+                new WebDeveloper("TS")
+            };
 
-            SoftwareDeveloper bob = new SoftwareDeveloper("RPG");
-            bob.Code();
+            foreach (var item in selfDeveloping)
+            {
+                ShowMeHowToSelfDevelop(item);
+            }
         }
+
+        static void ShowMeHowToSell(Salesman salesman)
+        {
+            salesman.Sell();
+        }
+
+        static void ShowMeHowToSelfDevelop(SelfDeveloping selfDeveloping)
+        {
+            selfDeveloping.Develop();
+        }
+
     }
 }
